@@ -9,13 +9,12 @@ Create a simple app with the following features:
    a. Mark user as verified only after the link is clicked.
 
 To send verification links use this mailbox:
-
 > **Note**: PLEASE NOTE THAT THIS MAILBOX IS FOR SENDING NOT RECEIVING
 
 ```
-zonamailbox@gmail.com
-Password: Bb123456!
-Recovery Email (in case you try to log in and cannot): oran@upstack.co
+z******@gmail.com
+Password: 
+Recovery Email (in case you try to log in and cannot): **************
 ```
 
 - This is a backend challenge, so I don’t really care about the frontend. However, a 5 line HTML would be nice, just to have something to work with.
@@ -37,6 +36,8 @@ nvm use (optional, node version use 10)
 yarn install
 yarn start
 ```
+
+Create `.env` file in root dir with the content attached to the email
 
 You can use Insomnia collection placed on `/docs/`
 
