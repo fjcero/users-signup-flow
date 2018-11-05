@@ -53,3 +53,7 @@ You can use Insomnia collection placed on `/docs/`
 ### User verification
 
 > **GET** /users/verify/{code}
+
+## Troubleshooting
+
+For enabling access to GMail and send emails I followed instructions here after trying without success: https://codeburst.io/sending-an-email-using-nodemailer-gmail-7cfa0712a799. I enabled "less secure access" and it work ok.

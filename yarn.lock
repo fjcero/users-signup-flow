@@ -1049,6 +1049,14 @@ globby@^5.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
+gmail-send@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/gmail-send/-/gmail-send-1.2.14.tgz#2fd20a0270197be46f8f2633ea34f9410dec01b1"
+  integrity sha512-4fF12Okdj7daek3gD3OLEnin8NmhNJNldGgxAcFtJ3KJTgqp1JoN2nqSTEu/Izo2GT7pjd+pDKYTKVehIYMdVA==
+  dependencies:
+    lodash "^4.17.5"
+    nodemailer "^4.6.4"
+
 got@^6.7.1:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/got/-/got-6.7.1.tgz#240cd05785a9a18e561dc1b44b41c763ef1e8db0"
@@ -1788,7 +1796,7 @@ node-pre-gyp@^0.10.0:
     semver "^5.3.0"
     tar "^4"
 
-nodemailer@^4.6.8:
+nodemailer@^4.6.4, nodemailer@^4.6.8:
   version "4.6.8"
   resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-4.6.8.tgz#f82fb407828bf2e76d92acc34b823d83e774f89c"
   integrity sha512-A3s7EM/426OBIZbLHXq2KkgvmKbn2Xga4m4G+ZUA4IaZvG8PcZXrFh+2E4VaS2o+emhuUVRnzKN2YmpkXQ9qwA==

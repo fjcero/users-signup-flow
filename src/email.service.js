@@ -1,28 +1,26 @@
-const nodemailer = require('nodemailer');
+const gmailSend = require('gmail-send');
 
 module.exports = class EmailService {
   constructor() {
-    this.transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'zonamailbox@gmail.com',
-        pass: 'Bb123456!',
-      },
-    });
+    this.config = {
+      user: 'zonamailbox@gmail.com',
+      pass: 'Bb123456!',
+    };
+
+    this.transporter = gmailSend(this.config);
   }
 
   async sendMail(opts) {
     const mailOptions = {
-      from: 'zonamailbox@gmail.com',
+      ...this.config,
       to: opts.user.email,
       subject: opts.subject,
-      html: opts.message,
+      html: opts.html,
     };
 
-    this.transporter.sendMail(mailOptions, (err, info) => {
+    this.transporter(mailOptions, (err, info) => {
       if (err) console.log(err);
 
-      console.log('Message sent: %s', info.messageId);
       console.log(info);
     });
   }

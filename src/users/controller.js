@@ -15,14 +15,14 @@ module.exports = class SignUpController {
       const user = await this.userRepository.create({ username, email });
 
       // Hash will be id (for now)
-      // const code = md5(`${user._doc._id}${user._doc.email}`);
+      // TODO: const code = md5(`${user._doc._id}${user._doc.email}`);
       const code = user._doc._id;
 
       // Send email to user
       await this.emailService.sendMail({
         user: { ...user._doc },
         subject: 'Verify your account',
-        message: `
+        html: `
           <p>
             <a href="http://localhost:3000/users/verify/${code}">Click to verify your account</a>
           </p>
