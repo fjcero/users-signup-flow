@@ -1,0 +1,105 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-11-05T14:39:58.916Z",
+	"__export_source": "insomnia.desktop.app:v6.0.2",
+	"resources": [
+		{
+			"_id": "wrk_ea5086973cbd406dba715b90bf5613e7",
+			"created": 1541425147183,
+			"description": "",
+			"modified": 1541425147183,
+			"name": "Upstack",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_6d472059d24146c381ff3c9f8db9e61d",
+			"color": null,
+			"created": 1541425147314,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1541425147314,
+			"modified": 1541425147314,
+			"name": "New Environment",
+			"parentId": "wrk_ea5086973cbd406dba715b90bf5613e7",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_d1440114285d4fbdb4d019385dadaa62",
+			"cookies": [],
+			"created": 1541425147344,
+			"modified": 1541425147344,
+			"name": "Default Jar",
+			"parentId": "wrk_ea5086973cbd406dba715b90bf5613e7",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_8e46d6e928084d59b37b2a65a4f8259f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"test\",\n\t\"email\": \"test@test.com\"\n}"
+			},
+			"created": 1541425175633,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_0541c8a377494610b1a3d458e8cf7d75",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1541425175633,
+			"method": "POST",
+			"modified": 1541428754979,
+			"name": "Register User",
+			"parameters": [
+				{
+					"id": "pair_a737baf972334b249a589a553c1a4b7a",
+					"name": "",
+					"value": ""
+				}
+			],
+			"parentId": "wrk_ea5086973cbd406dba715b90bf5613e7",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/users/signup",
+			"_type": "request"
+		},
+		{
+			"_id": "req_251eb480296d49419eacc9e47e0be54a",
+			"authentication": {},
+			"body": {},
+			"created": 1541425187701,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_67e4ae3913524f47b14d617d22d8cafa",
+					"name": "",
+					"value": ""
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1541425187701,
+			"method": "GET",
+			"modified": 1541428756763,
+			"name": "Verify User",
+			"parameters": [],
+			"parentId": "wrk_ea5086973cbd406dba715b90bf5613e7",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/users/verify/123",
+			"_type": "request"
+		}
+	]
+}
