@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  'mongodb://upstack:nUdDA3J23cNbEGJ@ds153093.mlab.com:53093/upstack-backend',
+  process.env.DB_DSN,
   { useNewUrlParser: true }
 );
 

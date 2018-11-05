@@ -3,8 +3,8 @@ const gmailSend = require('gmail-send');
 module.exports = class EmailService {
   constructor() {
     this.config = {
-      user: 'zonamailbox@gmail.com',
-      pass: 'Bb123456!',
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
     };
 
     this.transporter = gmailSend(this.config);
