@@ -13,12 +13,23 @@ module.exports = class SignUpController {
 
     try {
       const user = await this.userRepository.create({ username, email });
+
+      // Hash will be id (for now)
+      // const code = md5(`${user._doc._id}${user._doc.email}`);
+      const code = user._doc._id;
+
+      // Send email to user
+      await this.emailService.sendMail({
+        user: { ...user._doc },
+        subject: 'Verify your account',
+        message: `
+          <p>
+            <a href="http://localhost:3000/users/verify/${code}">Click to verify your account</a>
+          </p>
+        `,
+      });
+
       res.json({ ...user });
-
-      // TODO: Email should be sent
-      // hash will be id+email, for now
-      // md5
-
     } catch (err) {
       // Handle if user already exists
       if (err.name === 'MongoError' && err.code === 11000) {
@@ -31,6 +42,32 @@ module.exports = class SignUpController {
 
   async verify(req, res) {
     const { code } = req.params;
-    res.json({});
+
+    try {
+      const user = await this.userRepository.get({ _id: code });
+
+      if (user.verified !== true) {
+        await this.userRepository.verify(user);
+      } else {
+        res.status(409).json({
+          error: {
+            msg: `Account already verified`,
+            code: 3,
+            body: { ...req.params, ...user },
+          },
+        });
+      }
+
+      res.json(user);
+    } catch (err) {
+      res.status(404).json({
+        error: {
+          msg: `Verification code don't exists`,
+          code: 2,
+          stack: err.stack,
+          body: { ...req.params },
+        },
+      });
+    }
   }
 };

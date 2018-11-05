@@ -11,7 +11,7 @@ module.exports = class EmailService {
     });
   }
 
-  sendMail(opts) {
+  async sendMail(opts) {
     const mailOptions = {
       from: 'zonamailbox@gmail.com',
       to: opts.user.email,

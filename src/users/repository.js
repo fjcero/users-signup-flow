@@ -20,11 +20,26 @@ module.exports = class UsersRepository {
     return user;
   }
 
+  async get(opts) {
+    return await User.findOne({ ...opts }, (err, user) => {
+      if (err) console.error(err);
+      return user;
+    });
+  }
+
   async create(user) {
     const u = new User(this._prepareUserInput(user));
     try {
       return await u.save();
-    } catch(e) {
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  async verify(user) {
+    try {
+      return await User.update({ _id: user._id }, { verified: true });
+    } catch (e) {
       throw e;
     }
   }
